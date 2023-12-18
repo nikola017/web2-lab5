@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>First PWA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles.css"> 
+</head>
+<body>
+    <header>
+        <h1>Audio show PWA</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Poćetna</a></li>
+                <li><a href="upload.html">Objavi audio</a></li>
+                <li><a href="about.html">O nama</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Dobrodošli!</h2>
+            <p>Ovo je početna stranica progresivne web-aplikacije. Snimi različitu buku te ih objavi!</p>
+        </section>
+        <section id="audioList">
+            <h2>Audio Snimke</h2>
+            <div id="audioContainer"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>2023 Project 5</p>
+    </footer>
+    <!-- SW REGISTRACIJA -->
+    <script>
+        function fetchAndDisplayAudios() {
+    fetch('/audios')
+        .then(response => {
+            if (response.ok) {
+                response.json().then(data => {
+                    data.files.forEach(fileName => {
+                        let audioContainer = document.getElementById('audioContainer');
+                        
+                        // Stvaranje i postavljanje audio elementa
+                        let audioElement = document.createElement('audio');
+                        audioElement.setAttribute('controls', 'controls');
+                        audioElement.src = '/uploads/' + fileName;
+
+                        // Formatiranje imena
+                        let formattedName = fileName
+                            .substring(24) // Uklanja vremensku oznaku
+                            .replace(/_/g, ' ') // Zamjenjuje podvlake s razmacima
+                            .replace(/\..+$/, ''); // Uklanja ekstenziju datoteke
+
+                        // Stvaranje i postavljanje naslova
+                        let titleElement = document.createElement('h3');
+                        titleElement.textContent = formattedName;
+
+                        // Dodavanje u DOM
+                        audioContainer.appendChild(titleElement);
+                        audioContainer.appendChild(audioElement);
+                    });
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching audios:', error);
+        });
+    }
+    window.addEventListener('load', fetchAndDisplayAudios);
+    </script>
+</body>
+</html>

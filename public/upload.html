@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First PWA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles.css"> 
+</head>
+<body>
+    <header>
+        <h1>Audio show PWA</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Poćetna</a></li>
+                <li><a href="upload.html">Objavi audio</a></li>
+                <li><a href="about.html">O nama</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="recordAudio" style="text-align: center;">
+            <h3>Snimi svoj audio zapis:</h3>
+            <div id="beforeRecord">
+                <br>
+                <button id="btnStartRecording">Počni Snimanje</button>
+                <button id="btnStopRecording">Zaustavi Snimanje</button>
+            </div>
+            <div id="afterRecord" style="display: none;">
+                <input id="audioName" type="text" placeholder="daj mu zanimljiv naziv..." />
+                <br>
+                <audio id="audioPlayer" controls></audio>
+                <br>
+                <p id="warningText" style="color: red; display: none;">Molimo unesite ime za vaš audio zapis.</p>
+                <button id="btnUploadAudio">Upload</button>
+                <button id="btnCancel">Prekini</button> 
+            </div>
+        </div>
+        <script type="module" src="upload.js"></script>
+    </main>
+
+    <footer>
+        <p>2023 Projekt 5</p>
+    </footer>
+    <script type="module" src="upload.js"></script>
+</body>
+</html>
