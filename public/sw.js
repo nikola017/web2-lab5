@@ -5,7 +5,8 @@ const urlsToCache = [
   '/index.html',
   '/upload.html',
   '/about.html',
-  '/404.html'
+  '/404.html',
+  '/offline.html'
 ];
 
 // instalacija i caching
@@ -55,6 +56,9 @@ self.addEventListener('fetch', event => {
                     return response;
                 });
             });
+        }).catch((error) => {
+            console.log("Error", event.request.url, error);
+            return caches.match("offline.html");
         })
     );
 });

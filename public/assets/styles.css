@@ -1,0 +1,82 @@
+/* Osnovni reset */
+body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Zaglavlje */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+}
+
+/* Navigacija */
+nav ul {
+    list-style: none;
+    background-color: #555;
+    text-align: center;
+    padding: 0.5rem 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    background-color: #444;
+}
+
+/* Glavni sadržaj */
+main {
+    padding: 1rem;
+}
+
+main h2 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+/* Audio Container */
+#audioContainer {
+    margin-top: 1rem;
+}
+
+#audioContainer h3 {
+    margin-top: 1rem;
+}
+
+#audioContainer audio {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+/* Podnožje */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

@@ -30,12 +30,20 @@
     </main>
 
     <footer>
-        <p>2023 Project 5</p>
+        <p>2023 Projekt 5</p>
     </footer>
     <!-- SW REGISTRACIJA -->
     <script>
+        if ('serviceWorker' in navigator) {
+            console.log('Registering SW.')
+            navigator.serviceWorker
+            .register('./sw.js', {type : "module"})
+            .then((reg) => console.log('SW registered!', reg))
+            .catch((err) => console.error('Error registering service worker', err));
+        }
+
         function fetchAndDisplayAudios() {
-    fetch('/audios')
+            fetch('/audios')
         .then(response => {
             if (response.ok) {
                 response.json().then(data => {
