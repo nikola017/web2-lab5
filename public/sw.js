@@ -52,7 +52,7 @@ self.addEventListener('fetch', event => {
                     return caches.match("404.html");
                 }
                 return caches.open(CACHE_NAME).then((cache) => {
-                    cache.put(event.request.url, response.clone()); // linija 54
+                    cache.put(event.request.url, response.clone());
                     return response;
                 });
             });

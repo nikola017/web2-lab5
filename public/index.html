@@ -50,22 +50,22 @@
                     data.files.forEach(fileName => {
                         let audioContainer = document.getElementById('audioContainer');
                         
-                        // Stvaranje i postavljanje audio elementa
+                        // stvaranje i postavljanje audio elementa
                         let audioElement = document.createElement('audio');
                         audioElement.setAttribute('controls', 'controls');
                         audioElement.src = '/uploads/' + fileName;
 
-                        // Formatiranje imena
+                        // formatiranje imena
                         let formattedName = fileName
-                            .substring(24) // Uklanja vremensku oznaku
-                            .replace(/_/g, ' ') // Zamjenjuje podvlake s razmacima
-                            .replace(/\..+$/, ''); // Uklanja ekstenziju datoteke
+                            .substring(24)
+                            .replace(/_/g, ' ')
+                            .replace(/\..+$/, '');
 
-                        // Stvaranje i postavljanje naslova
+                        // stvaranje i postavljanje naslova
                         let titleElement = document.createElement('h3');
                         titleElement.textContent = formattedName;
 
-                        // Dodavanje u DOM
+                        // dodavanje u DOM
                         audioContainer.appendChild(titleElement);
                         audioContainer.appendChild(audioElement);
                     });

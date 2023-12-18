@@ -44,7 +44,7 @@ var uploadAudio = multer({
 }).single("audio");
 app.get("/audios", function (req, res) {
   let files = fse.readdirSync(UPLOAD_PATH);
-  files = files.reverse().slice(0, 10); // Pretpostavljajući da želiš zadržati limit od 10 najnovijih datoteka
+  files = files.reverse().slice(0, 10); // pretpostavljajući da se želi zadržati limit od 10 najnovijih datoteka
   console.log("In uploads, there are", files);
   res.json({
     files
@@ -108,7 +108,7 @@ app.use(function(err, req, res, next) {
     res.send('Error: ' + err.message);
 });
 
-// Start the server
+// start the server
 if (externalUrl) {
   const hostname = '0.0.0.0'; // ne 127.0.0.1
   app.listen(port, hostname, () => {

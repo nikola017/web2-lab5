@@ -2,7 +2,6 @@ import { set } from "https://cdn.jsdelivr.net/npm/idb-keyval@6/+esm";
 // vidi je li preglednik podržava Service Worker i Backround Sync
 const isBackgroundSyncSupported = 'serviceWorker' in navigator && 'SyncManager' in window;
 
-// Snimanje Audio zapisa
 let mediaRecorder;
 let audioChunks = [];
 
